@@ -13,10 +13,10 @@ var app = express();
 var home = require('./app/controllers/home');
 
 
-
+debugger;
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, './app/views'));
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
