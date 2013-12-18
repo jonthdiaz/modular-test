@@ -23,8 +23,8 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(app.router);
+app.use(express.static(path.join(__dirname, './public')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -33,6 +33,14 @@ if ('development' == app.get('env')) {
 
 //RUTAS DE LA APLICACIÓN 
 app.use(home);
+
+app.get('/test',function  (req,resp) {
+	resp.render('./home/index',{
+		title:"hola, desde el controlador home"
+	});
+
+	
+});
 
 
 http.createServer(app).listen(app.get('port'), function(){
